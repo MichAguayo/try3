@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Quiz 2- DAMM
+    </ion-title>
+  </ion-toolbar>
+ </ion-header>
+ 
+ 
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bromas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
+ 
+  <ion-content class="ion-padding">
+    <ion-card *ngIf="randomJoke; else loadingJoke">
+      <!--<ion-card-header>
+        <ion-card-title>Chiste del día</ion-card-title>
+      </ion-card-header>-->
+      <ion-card-content>
+        {{ randomJoke }}
+      </ion-card-content>
+    </ion-card>
+ 
+    <ng-template #loadingJoke>
+      <ion-spinner></ion-spinner>
+    </ng-template>
+
+    <ion-list>
+      <ion-item *ngFor="let category of jokeCategories">
+        <ion-button (click)="getJokeByCategory(category)">
+          {{ category }}
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-card *ngIf="selectedJoke">
+      <ion-card-header>
+        <ion-card-title>Chiste de {{ selectedCategory }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ selectedJoke }}
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

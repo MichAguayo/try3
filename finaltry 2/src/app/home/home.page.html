@@ -1,0 +1,100 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Quiz 2- Damm
+    </ion-title>
+  </ion-toolbar>
+ </ion-header>
+ 
+ 
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Chuck Norris</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
+ 
+  <ion-content class="ion-padding">
+    <ion-card *ngIf="randomJoke; else loadingJoke">
+      
+      <ion-card-content>
+        {{ randomJoke }}
+      </ion-card-content>
+    </ion-card>
+ 
+ 
+    <ng-template #loadingJoke>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+ 
+ 
+    <ion-list *ngIf="jokeCategories.length > 0; else loadingCategories">
+      <ion-item *ngFor="let category of jokeCategories">
+        <ion-label>{{ category }}</ion-label>
+      </ion-item>
+    </ion-list>
+ 
+ 
+    <ng-template #loadingCategories>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+ //desde aquí fueron los cambios
+
+ <ion-list *ngIf="jokeCategories.length > 0; else loadingCategories">
+  <ion-item *ngFor="let category of jokeCategories" (click)="loadJokesByCategory(category)">
+    <ion-label>{{ category }}</ion-label>
+  </ion-item>
+</ion-list>
+
+<ng-template #loadingCategories>
+  <ion-spinner name="crescent"></ion-spinner>
+</ng-template>
+
+<ion-list *ngIf="selectedCategoryJokes.length > 0">
+  <ion-item *ngFor="let joke of selectedCategoryJokes">
+    <ion-label>{{ joke }}</ion-label>
+  </ion-item>
+</ion-list>
+
+//hasta aquí
+ 
+  </ion-content>
+ </ion-content>-->
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Chuck Norris</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-card *ngIf="randomJoke; else loadingJoke">
+      <ion-card-content>
+        {{ randomJoke }}
+      </ion-card-content>
+    </ion-card>
+
+    <ng-template #loadingJoke>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+
+    <ion-list *ngIf="jokeCategories.length > 0; else loadingCategories">
+      <ion-item *ngFor="let category of jokeCategories">
+        <ion-button expand="full" (click)="loadJokesByCategory(category)" class="custom-button">
+          {{ category }}
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #loadingCategories>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+
+    <ion-list *ngIf="selectedCategoryJokes.length > 0">
+      <ion-item *ngFor="let joke of selectedCategoryJokes">
+        <ion-label>{{ joke }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>
